@@ -59,7 +59,7 @@ public class PortletA extends GenericPortlet {
  
   @ProcessAction(name="irAPortletB")
 
-  public void processAction(ActionRequest request, ActionResponse response) throws PortletException, IOException {
+  public void irAPortletB(ActionRequest request, ActionResponse response) throws PortletException, IOException {
 	
 	  String nombre= request.getParameter(NOMBRE);
 	  String direccion=request.getParameter(DIRECCION);
@@ -68,7 +68,7 @@ public class PortletA extends GenericPortlet {
 	  Persona persona = new Persona(nombre, direccion, telefono);
 	  
 	 QName qName = new QName("http://examen.portlets.com", "irAPortletB", "x");
-	 response.setEvent("persona", persona);
+	 response.setEvent(qName, persona);
 	
 }
     

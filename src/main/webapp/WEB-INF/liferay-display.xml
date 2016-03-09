@@ -6,5 +6,6 @@
 	<category name="category.sample">
 		<portlet id="portlet-a"></portlet>
 		<portlet id="portlet-b"></portlet>
+		<portlet id="portlet-c"></portlet>
 	</category>
 </display>
