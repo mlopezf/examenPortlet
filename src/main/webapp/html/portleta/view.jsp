@@ -13,7 +13,7 @@
 <input type="submit" value="PortletC" formaction="<%=irAPortletC %>" formmethod="post"/>
 	<div>NOMBRE: <input type="text" name="<%=PortletA.NOMBRE %>"/></div>
 	<div>DIRECCIÓN: <input type="text" name="<%=PortletA.DIRECCION %>"/></div>
-	<div>TELÉFONO<input type="tel" name="<%=PortletA.TELEFONO %>"/></div>
+	<div>TELÉFONO<input type="number"  name="<%=PortletA.TELEFONO %>"/></div>
 
 
 </form>

@@ -13,7 +13,7 @@ if (persona!=null){
 
 	<div>NOMBRE: <input type="text" value="<%=persona.getNombre() %>"/></div>
 	<div>DIRECCIÓN: <input type="text" value="<%=persona.getDireccion() %>"/></div>
-	<div>TELÉFONO<input type="tel" value="<%=persona.getTelefono() %>"/></div>
+	<div>TELÉFONO<input type="number" value="<%=persona.getTelefono() %>"/></div>
 
 <%	
 }else {
