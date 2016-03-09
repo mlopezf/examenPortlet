@@ -1,6 +1,8 @@
 package com.examen.portlet.entidades;
 
-public class Persona {
+import java.io.Serializable;
+
+public class Persona implements Serializable {
 
 	public Persona() {
 		// TODO Auto-generated constructor stub
