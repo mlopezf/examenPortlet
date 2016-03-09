@@ -7,18 +7,20 @@
 
 <%
 
-Persona persona = (Persona)request.getAttribute("recibePersona");
+String nombre="";
+String direccion="";
+String telefono="";
+
+Persona persona = (Persona)request.getAttribute("persona");
 if (persona!=null){
-%>
-
-	<div>NOMBRE: <input type="text" value="<%=persona.getNombre() %>"/></div>
-	<div>DIRECCIÓN: <input type="text" value="<%=persona.getDireccion() %>"/></div>
-	<div>TELÉFONO<input type="number" value="<%=persona.getTelefono() %>"/></div>
-
-<%	
-}else {
-%>
-<h3>Introduce tus datos en el PortletA</h3>
-<%	
+	nombre=persona.getNombre();
+	direccion=persona.getDireccion();
+	telefono=persona.getTelefono();
 }
+
 %>
+
+	<div>NOMBRE: <input type="text" value="<%=nombre%>"/></div>
+	<div>DIRECCIÓN: <input type="text" value="<%=direccion %>"/></div>
+	<div>TELÉFONO<input type="text" value="<%=telefono %>"/></div>
+

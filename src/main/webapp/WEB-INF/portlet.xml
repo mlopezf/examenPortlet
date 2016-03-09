@@ -32,6 +32,12 @@
 		<security-role-ref>
 			<role-name>user</role-name>
 		</security-role-ref>
+        <supported-processing-event>
+            <qname xmlns:x="http://examen.portlets.com">x:irAPortletB</qname>
+        </supported-processing-event>
+        <supported-processing-event>
+            <qname xmlns:x="http://examen.portlets.com">x:irAPortletC</qname>
+        </supported-processing-event>
         <supported-publishing-event>
             <qname xmlns:x="http://examen.portlets.com">x:irAPortletB</qname>
         </supported-publishing-event>

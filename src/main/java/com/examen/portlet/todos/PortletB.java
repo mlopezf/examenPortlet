@@ -60,8 +60,8 @@ public class PortletB extends GenericPortlet {
   public void recibirPortletA(EventRequest request, EventResponse response) throws PortletException, IOException {
 	
 	  Event evento = request.getEvent();
-	  Serializable recibePersona = evento.getValue();
-	  request.setAttribute("recibePersona", recibePersona);
+	  Serializable persona = evento.getValue();
+	  request.setAttribute("persona", persona);
 	  
 }
 

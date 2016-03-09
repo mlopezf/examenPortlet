@@ -1,13 +1,18 @@
 package com.examen.portlet.todos;
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+import javax.portlet.Event;
+import javax.portlet.EventRequest;
+import javax.portlet.EventResponse;
 import javax.portlet.GenericPortlet;
 import javax.portlet.PortletException;
 import javax.portlet.PortletRequestDispatcher;
 import javax.portlet.ProcessAction;
+import javax.portlet.ProcessEvent;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.xml.namespace.QName;
@@ -21,9 +26,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
  */
 public class PortletA extends GenericPortlet {
 
+	public static String TELEFONO = "telefono";
 	public static String NOMBRE= "nombre";
 	public static String DIRECCION= "direccion";
-	public static String TELEFONO= "telefono";
+	
 	
 	protected String viewTemplate;
 
@@ -63,12 +69,13 @@ public class PortletA extends GenericPortlet {
 	
 	  String nombre= request.getParameter(NOMBRE);
 	  String direccion=request.getParameter(DIRECCION);
-	  int telefono= Integer.parseInt(request.getParameter(TELEFONO));
+	  String telefono= request.getParameter(TELEFONO);
 	  
 	  Persona persona = new Persona(nombre, direccion, telefono);
 	  
 	 QName qName = new QName("http://examen.portlets.com", "irAPortletB", "x");
 	 response.setEvent(qName, persona);
+	 request.setAttribute("persona", persona);
 	
 }
     
@@ -78,14 +85,31 @@ public class PortletA extends GenericPortlet {
 	
 	  String nombre= request.getParameter(NOMBRE);
 	  String direccion=request.getParameter(DIRECCION);
-	  int telefono= Integer.parseInt(request.getParameter(TELEFONO));
+	  String telefono= request.getParameter(TELEFONO);
 	  
-	  Persona persona = new Persona(nombre, direccion, telefono);
+	  Persona persona = new Persona(nombre, direccion,telefono);
 	  
 	 QName qName = new QName("http://examen.portlets.com", "irAPortletC", "x");
 	 response.setEvent(qName, persona);
+	 request.setAttribute("persona", persona);
 	
 }
-    
+  @ProcessEvent(qname="{http://examen.portlets.com}irAPortletB")
+
+  public void recibirPortletA1(EventRequest request, EventResponse response) throws PortletException, IOException {
+	
+	  Event evento = request.getEvent();
+	  Serializable persona = evento.getValue();
+	  request.setAttribute("persona", persona);
+	  
+} 
+  @ProcessEvent(qname="{http://examen.portlets.com}irAPortletC")
+  public void recibirPortletA2(EventRequest request, EventResponse response) throws PortletException, IOException {
+		
+	  Event evento = request.getEvent();
+	  Serializable persona = evento.getValue();
+	  request.setAttribute("persona", persona);
+	  
+} 
   
 }
