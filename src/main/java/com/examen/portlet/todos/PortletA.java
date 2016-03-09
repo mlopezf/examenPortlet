@@ -72,5 +72,20 @@ public class PortletA extends GenericPortlet {
 	
 }
     
+  @ProcessAction(name="irAPortletC")
 
+  public void irAPortletC(ActionRequest request, ActionResponse response) throws PortletException, IOException {
+	
+	  String nombre= request.getParameter(NOMBRE);
+	  String direccion=request.getParameter(DIRECCION);
+	  int telefono= Integer.parseInt(request.getParameter(TELEFONO));
+	  
+	  Persona persona = new Persona(nombre, direccion, telefono);
+	  
+	 QName qName = new QName("http://examen.portlets.com", "irAPortletC", "x");
+	 response.setEvent(qName, persona);
+	
+}
+    
+  
 }
